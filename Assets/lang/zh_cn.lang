@@ -1,0 +1,22 @@
+[MainWindow]
+title = NiceWallPaper主程序
+file = 文件
+edit = 编辑
+settings = 设置
+help = 帮助
+update = 检查更新
+about = 关于
+
+[update]
+FoundUpdate = 发现更新
+AskDownload_1 = 版本
+AskDownload_2 = 可用，是否下载？
+UpdateOk = 更新完成，重启主程序？
+UpdateBad = 更新错误，未知原因，请稍后再试
+NotUpdate = 无可用更新，您所使用的为最新版本
+
+[AboutWindow]
+title = 关于
+aboutInfo_1 =  版权所有 © 2024 Yujia Liang
+aboutInfo_2 = LICENSE Apache 2.0
+close = 关闭

@@ -1,0 +1,22 @@
+[MainWindow]
+title = NiceWallPaper main program
+file = file
+edit = edit
+settings = settings
+help = help
+update = Check for updates
+about = about
+
+[update]
+FoundUpdate = Discovery Update
+AskDownload_1 = Version
+AskDownload_2 = Available, download or not?
+UpdateOk = The update is complete, restart the main program?
+UpdateBad = Update error, unknown reason, please try again later
+NotUpdate = No update available, you are using the latest version
+
+[AboutWindow]
+title = about
+aboutInfo_1 = Copyright © 2024 Yujia Liang
+aboutInfo_2 = LICENSE Apache 2.0
+close = closed
