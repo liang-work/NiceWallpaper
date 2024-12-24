@@ -49,22 +49,25 @@ def load_file():
         raise FileNotFoundError("NOT_FOUND_LANGUAGE_FILE")
 
 def Update():
-    update_check, back_version = check(ufURL=config["MainWindow"]["UpdateJson"], ver_info=appinfo)
-    if update_check:
-        if messagebox.askyesno(
-            lang_load["update"]["FoundUpdate"],
-            f"{lang_load['update']['AskDownload_1']}{back_version}{lang_load['update']['AskDownload_2']}"
-        ):
-            if upgrade(config["MainWindow"]["Upgrade"]):
-                if messagebox.askyesno(lang_load["MainWindow"]["title"],lang_load["update"]["UpdateOk"]):
-                    restart_program()
+    try:
+        update_check, back_version = check(ufURL=config["MainWindow"]["UpdateJson"], ver_info=appinfo)
+        if update_check:
+            if messagebox.askyesno(
+                lang_load["update"]["FoundUpdate"],
+                f"{lang_load['update']['AskDownload_1']}{back_version}{lang_load['update']['AskDownload_2']}"
+            ):
+                update_ok, error_info = upgrade(config["MainWindow"]["Upgrade"])
+                if update_ok:
+                    if messagebox.askyesno(lang_load["MainWindow"]["title"],lang_load["update"]["UpdateOk"]):
+                        restart_program()
+                    else:
+                        pass
                 else:
-                    pass
-            else:
-                messagebox.showwarning("ERROR",lang_load["update"]["UpdateBad"])
-    else:
-        messagebox.showinfo("NOTUPDATE", lang_load["update"]["NotUpdate"])
-
+                    messagebox.showwarning("ERROR",lang_load["update"]["UpdateBad"]+"\n"+error_info)
+        else:
+            messagebox.showinfo("NOTUPDATE", lang_load["update"]["NotUpdate"])
+    except Exception as e:
+        print(f"更新器错误: {e}\n函数提前停止。\nEC:0xf0001")
 try:
     load_file()
 
@@ -73,12 +76,13 @@ try:
     # 添加菜单项
     file_menu = menu.add_cascade(lang_load["MainWindow"]["file"])
     edit_menu = menu.add_cascade(lang_load["MainWindow"]["edit"])
-    settings_menu = menu.add_cascade(lang_load["MainWindow"]["settings"])
     help_menu = menu.add_cascade(lang_load["MainWindow"]["help"])
 
     help_menu_drop = CMB.CustomDropdownMenu(widget=help_menu)
     help_menu_drop.add_option(option=lang_load["MainWindow"]["update"],command=Update)
     help_menu_drop.add_option(option=lang_load["MainWindow"]["about"],command=lambda:AW.open(ctk,lang_load))
+    edit_menu_drop = CMB.CustomDropdownMenu(widget=edit_menu)
+    #edit_menu_drop.add_option(option=lang_load["MainWindow"]["settings"],command=lambda:os.popen("python settings.py"))#没完成，不开放
 
     app.title(lang_load["MainWindow"]["title"])
     app.iconbitmap("Assets/images/wallpaper_logo.ico")
