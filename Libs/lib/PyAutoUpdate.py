@@ -1,7 +1,7 @@
 #=======================================#
 #NICEWALLPAPER自动更新器
 #=======================================#
-import requests as requests
+import Libs.requests as requests
 import zipfile
 import os
 
