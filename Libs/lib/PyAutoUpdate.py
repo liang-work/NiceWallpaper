@@ -11,6 +11,8 @@ def check(ufURL,ver_info):
     s = requests.session()
     s.keep_alive = False
     ver_file = requests.get(ufURL,verify=False)
+    if ver_file.status_code != requests.codes.ok:
+        return False,"REQUESTS_ERROR"+ver_file.status_code
     if ver_file.json()["versionID"] > ver_info["versionID"] and ver_file.json()["identifier"] != ver_info["identifier"]:
         return True,ver_file.json()["Version"]
     else:
