@@ -6,6 +6,9 @@ settings = settings
 help = help
 update = Check for updates
 about = about
+bg_path = Background path (URL links are not supported)
+browse = browse
+revise = Confirm the change
 
 [update]
 FoundUpdate = Discovery Update
@@ -17,6 +20,19 @@ NotUpdate = No update available, you are using the latest version
 
 [AboutWindow]
 title = about
-aboutInfo_1 = Copyright © 2024 Yujia Liang
+aboutInfo_1 = Copyright © 2024 Yujia Liang (NRFF)
 aboutInfo_2 = LICENSE Apache 2.0
 close = closed
+
+[Settings]
+title = settings
+lang_select = Language selection
+apply = apply
+apply_exit = Save and exit
+cancel = cancel
+check_exit = OK to quit? The changes you made may not have been saved.
+preference_label = Preferences
+theme_label = Theme Settings
+dark = dark mode
+day = day mode
+theme_system = Follow the system

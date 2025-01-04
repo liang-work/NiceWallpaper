@@ -6,6 +6,9 @@ settings = 设置
 help = 帮助
 update = 检查更新
 about = 关于
+bg_path = 背景路径(暂不支持URL链接)
+browse = 浏览
+revise = 确认修改
 
 [update]
 FoundUpdate = 发现更新
@@ -17,9 +20,19 @@ NotUpdate = 无可用更新，您所使用的为最新版本
 
 [AboutWindow]
 title = 关于
-aboutInfo_1 =  版权所有 © 2024 Yujia Liang
+aboutInfo_1 =  版权所有 © 2024 Yujia Liang(NRFF)
 aboutInfo_2 = LICENSE Apache 2.0
 close = 关闭
 
 [Settings]
 title = 设置
+lang_select = 语言选择
+apply = 应用
+apply_exit = 保存并退出
+cancel = 取消
+check_exit = 确定退出？您所做的更改可能未保存。
+preference_label = 偏好设置
+theme_label = 主题设置
+dark = 黑暗模式
+day = 白天模式
+theme_system = 跟随系统
